@@ -1,0 +1,67 @@
+body, .container, label, form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.container{
+    width: 30%;
+    height: 70%;
+
+    background: linear-gradient(rgba(30, 37, 41, 0.322), rgba(36, 56, 68, 0.548) 90%) no-repeat;
+    border: solid 2px rgb(183, 221, 148);
+    border-radius: 3px;
+
+}
+
+form{
+    justify-content: space-around;
+    height: 60%;
+    width: 100%;
+}
+
+h2{
+    font-family: monospace;
+    font-weight: 50;
+    font-size: 30px;
+
+    color:rgb(255, 245, 226);
+}
+
+label{
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+
+    font-family: monospace;
+    color: aliceblue;
+}
+
+input{    
+    font-size: 16px;
+    border: 0;
+
+    background-color: rgba(0, 0, 0, 0.336);
+
+    color: antiquewhite;
+
+    text-indent: 10px;
+
+    width: 80%;
+    height: 34px;
+
+    font-family: monospace;
+}
+
+button{
+
+    background-color: rgb(101, 98, 114);
+
+    color: aliceblue;
+
+    width: 120px;
+    height: 40px;
+}
