@@ -13,18 +13,18 @@
 <div class="container">
     <h2>Login</h2>
 
-    <form action="php/verificarPessoa.php" method="post">
+    <form action="php/logarPessoa.php" method="post">
         <label>
             Nome: 
-            <input name="nomeDoUsuario" type="text" placeholder="Nome"> 
+            <input name="nomeDoUsuario" type="text" placeholder="Nome" required> 
         </label>
         <label>
             Senha
-            <input name="senhaDoUsuario" type="password" placeholder="Senha"> 
+            <input name="senhaDoUsuario" type="password" placeholder="Senha" required> 
         </label>
         <button type="submit">Entrar</button>
     </form>
-    <a href="/php/verificarPessoa.php">
+    <a href="./arquivosDeInterface/php/mostrarCadastro.php">
         <button>Cadastre-se</button>
     </a>
 </div>

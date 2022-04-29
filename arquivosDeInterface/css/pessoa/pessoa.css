@@ -1,0 +1,12 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+p{
+    color:rgb(255, 245, 226);
+    font-family: monospace;
+}

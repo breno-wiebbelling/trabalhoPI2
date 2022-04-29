@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/common/style.css">
+    <link rel="stylesheet" href="../../css/listarPessoas/common.css">
+
+</head>
+<body>
+    <div class="pessoa">
+        <table>
+            <tr>
+                <td>
+                    <p>Id</p>
+                </td>
+                <td>
+                    <p>Nome</p>
+                </td>
+                <td>
+                    <p>Classificacao</p>
+                </td>
+            </tr>
+            <!--pessoas-->
+        </table>
+    </div>
+    <footer>
+        <div class="container">
+            <div id="formulario">
+                <a>
+                    <button onclick="mostrarFormularioAlteracao()">Alterar Usuarios</button>
+                </a>     
+                <a>
+                    <button onclick="mostrarFormularioExclusao()">Apagar Usuarios</button>
+                </a>  
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    function mostrarFormularioAlteracao(){
+        document.getElementById("formulario").innerHTML = `<form action="../../php/interfacesFuncionario/alterarUsuario.php" method="post">
+                                                                <label>
+                                                                    <p>ID para alterar</p>
+                                                                    <input type="text" name="id_alterar" required>
+                                                                    <button type="submit">Enviar</button>
+                                                                </label>
+                                                            </form>`;
+    }
+    function mostrarFormularioExclusao(){
+        document.getElementById("formulario").innerHTML = `<form action="../../../php/excluirPessoa.php" method="post">
+                                                                <label>
+                                                                    <p>ID para excluir</p>
+                                                                    <input type="text" name="id_exclusao" placeholder="um id apenas" required>
+                                                                    <button type="submit">Enviar</button>
+                                                                </label>
+                                                            </form>`;
+    }
+</script>
+</html>

@@ -5,19 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="../../arquivosDeInterface/css/common/style.css">
+    <link rel="stylesheet" href="../../arquivosDeInterface/css/login/login.css">
+    <link rel="stylesheet" href="../../arquivosDeInterface/css/cadastro/cadastro.css">
 </head>
 <body>
-    <div class="input-container">
+    <div>
         <h2>Dados para Cadastro: </h2>
-        <input classe="form-nome" type="text" placeholder="Nome">
-        <input classe="form-sobreNome" type="text" placeholder="Sobrenome">
-        <div>
-            <label>Data de Nascimento: </label><input classe="form-data" type="date">
-        </div>
-        <input classe="form-tel" type="tel" placeholder="Telefone">
-    
-        <input class="button-submit" type="submit">
+        <form action="../../php/adicionarPessoa.php" method="post">
+            <label>
+                Nome
+                <input type="text" placeholder="Nome" name="nomeDaPessoa" required>
+            </label>
+            <label>
+                Senha
+                <input type="password" placeholder="Senha" name="senhaDaPessoa" required>
+            </label>
+        
+            <button type="submit">Enviar</button>
+        </form>
     </div> 
 </body>
 </html>

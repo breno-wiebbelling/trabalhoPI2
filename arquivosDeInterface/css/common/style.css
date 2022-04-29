@@ -6,6 +6,8 @@ body{
     margin: 0;
     padding: 0;
 
+    position: relative;
+
     height: 100vh;
 }
 
@@ -15,6 +17,11 @@ h2{
     font-size: 30px;
 
     color:rgb(255, 245, 226);
+}
+
+* p{
+    color:rgb(255, 245, 226);
+    font-family: monospace;
 }
 
 button{
@@ -31,6 +38,10 @@ button:hover{
     border-bottom: 2px solid rgb(3, 3, 3);
 }
 
-input [type=text],input [type=password]{
+input [type="text"],input [type="password"]{
     font-family: monospace;
+}
+
+input:hover{
+    background-color: rgba(240, 248, 255, 0.068);
 }
