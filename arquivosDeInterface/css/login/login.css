@@ -5,8 +5,6 @@ body, .container, label, form{
     justify-content: center;
 }
 
-
-
 .container{
     width: 30%;
     height: 70%;
@@ -56,12 +54,3 @@ input{
     font-family: monospace;
 }
 
-button{
-
-    background-color: rgb(101, 98, 114);
-
-    color: aliceblue;
-
-    width: 120px;
-    height: 40px;
-}

@@ -11,6 +11,23 @@ body{
     height: 100vh;
 }
 
+header{
+    margin-top: 50px;
+    position: absolute;
+    top: 0;
+
+    width: 90%;
+
+    display: flex;  
+    justify-content: space-between;
+}
+
+header a {
+    text-decoration: none;
+
+    margin: 10px;
+}
+
 h2{
     font-family: monospace;
     font-weight: 50;
@@ -29,6 +46,14 @@ button{
     border: none;
     border-radius: 2.5px;
     border-bottom: 2px solid transparent;
+
+    background-color: rgb(101, 98, 114);
+
+    color: aliceblue;
+
+    width: 120px;
+    height: 40px;
+
 }
 
 button:hover{

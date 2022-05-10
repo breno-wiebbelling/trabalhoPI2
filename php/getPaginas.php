@@ -1,21 +1,21 @@
 <?php
 
 function getLogin(){
-    return file_get_contents("./arquivosDeInterface/html/login/index.html");
+    return file_get_contents("./arquivosDeInterface/html/pessoa/login/index.html");
 }
 
 function getCadastro(){
-    return file_get_contents("../../arquivosDeInterface/html/cadastro/index.html");
+    return file_get_contents("../../arquivosDeInterface/html/pessoa/cadastro/index.html");
 }
 
 function getInterfacePessoa($dadosDoUsuario){
 
     if($dadosDoUsuario["id_classificacao"]==1){
-        $templatePessoa = file_get_contents("../arquivosDeInterface/html/pessoa/usuario.html");
+        $templatePessoa = file_get_contents("../../arquivosDeInterface/html/home/usuario.html");
     }else if($dadosDoUsuario["id_classificacao"]==2){
-        $templatePessoa = file_get_contents("../arquivosDeInterface/html/pessoa/funcionario.html");
+        $templatePessoa = file_get_contents("../../arquivosDeInterface/html/home/funcionario.html");
     }else{
-        $templatePessoa = file_get_contents("../arquivosDeInterface/html/pessoa/gerente.html");
+        $templatePessoa = file_get_contents("../../arquivosDeInterface/html/home/gerente.html");
     }
 
     $templatePessoa = str_replace("nm_pessoa",$dadosDoUsuario["nm_pessoa"],$templatePessoa);
@@ -27,8 +27,14 @@ function getInterfacePessoa($dadosDoUsuario){
 
 function getInterfaceListarPessoas($listaDePessoas){
     
-    $interface = file_get_contents('../../html/listarPessoas/funcionario/index.html');
-    $moldePessoa = file_get_contents('../../html/listarPessoas/pessoa.html');
+    session_start();
+    if($_SESSION['id_classificacao']==3){
+        $interface = file_get_contents('../../html/pessoa/listarPessoas/gerente/index.html');
+    }else{
+        $interface = file_get_contents('../../html/pessoa/listarPessoas/funcionario/index.html');
+    }
+
+    $moldePessoa = file_get_contents('../../html/pessoa/listarPessoas/pessoa.html');
     
     $pessoas="";
     
@@ -47,12 +53,52 @@ function getInterfaceListarPessoas($listaDePessoas){
     return $interface;
 }
 
+function getInterfaceSelecionarId(){
+    return file_get_contents("../../../../html/gastos/listarGastos/gerente/selecionarId.html");
+}
+
 function getAlterarUsuario($dadosDaPessoa){
-    $interface = file_get_contents("../../html/interfaceFuncionario/alterarUsuario.html");
+    $interface = file_get_contents("../../html/pessoa/interfaceFuncionario/alterarUsuario.html");
     
     $interface = str_replace('$id_pessoa',$dadosDaPessoa['id_pessoa'],$interface);
     $interface = str_replace('$nm_pessoa',$dadosDaPessoa['nm_pessoa'],$interface);
     $interface = str_replace('$id_classificacao',$dadosDaPessoa['id_classificacao'],$interface);
+
+    return $interface;
+}
+
+
+//gastos
+
+function getInterfaceAdicionarGasto($id_pessoa){
+    if($id_pessoa<3){
+        $interface =  file_get_contents('../../html/gastos/adicionarGasto/index.html');
+    }else{
+        $interface =  file_get_contents('../../html/gastos/adicionarGasto/gerente/index.html');
+    }
+
+    $interface = str_replace('$id_pessoa',$id_pessoa,$interface);
+
+
+    return $interface;
+}
+
+function getInterfaceDeGastos($listaDeGastos, $id_pessoa){
+
+    $interface = file_get_contents('../../arquivosDeInterface/html/gastos/listarGastos/usuario/index.html');
+    
+    $gastosMoldados = '';
+
+    $valorTotal = 0;
+    foreach($listaDeGastos as $gasto){
+        $gastosMoldados.='<p>'.$gasto['id_gasto'].'º -- R$'.$gasto['nu_valor'].'</p>';
+        $valorTotal+=$gasto['nu_valor'];
+    }
+
+    $gastosMoldados.='<p>Valor total: R$'.$valorTotal.'</p>';
+
+    $interface = str_replace("id_pessoa",$id_pessoa,$interface);
+    $interface = str_replace("listaDeGastos",$gastosMoldados,$interface);
 
     return $interface;
 }

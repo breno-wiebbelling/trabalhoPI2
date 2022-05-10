@@ -52,6 +52,8 @@ function listarPessoaComId($idPessoa){
 	return $dadosPessoa;
 }
 
+
+
 function alterarNome($idPessoa, $novoNome){
 	$pdo = require('conectarBanco.php');
 	$pdo->query("update tb_pessoa set nm_pessoa = '$novoNome' where id_pessoa = $idPessoa")->fetchAll(PDO::FETCH_ASSOC);
@@ -64,4 +66,25 @@ function deletarPessoa($idPessoa){
 
 }
 
+//gasto
+
+function adicionarGasto($idPessoa, $valorGasto){
+	$pdo = require('conectarBanco.php');
+	$pdo->query("insert into tb_gasto values($idPessoa,$valorGasto, nextval('sq_nu_gasto'))")->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function listarGastosComId($idPessoa){
+	$pdo = require('conectarBanco.php');
+	$listaDeGastos = $pdo->query("select nu_valor, id_gasto from tb_gasto where id_pessoa = $idPessoa")->fetchAll(PDO::FETCH_ASSOC);
+
+	return $listaDeGastos;
+}
+
+function removerGasto($idPessoa, $idGasto){
+	$pdo = require('conectarBanco.php');
+	$pdo->query("delete from tb_gasto where id_gasto=$idGasto and id_pessoa = $idPessoa")->fetchAll(PDO::FETCH_ASSOC);
+
+}
+
 ?>
+
